@@ -1,5 +1,7 @@
-import {reducer} from './reducer';
-export const createStore = () => {
+export const createStore = (reducer,hightener) => {
+  if(hightener){
+    return hightener(createStore)(reducer)
+  }
   let currentState = {};
   let observers = []
   function getState() {
